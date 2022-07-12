@@ -2,5 +2,3 @@
 /main.o
 /fileShare
 /include/easyFiles.h.gch
-.vscode
-!.vscode/launch.json
