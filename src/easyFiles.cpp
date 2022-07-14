@@ -26,3 +26,32 @@ void easyFiles::fillCurrentPaths(){
 
 
 }
+
+
+
+std::vector<std::string> easyFiles::getCurrentPaths(){
+
+    return currentPaths;
+
+}
+
+
+
+
+
+void easyFiles::moveDownDir(){
+    fs::path currentPath (fs::current_path());
+    int lastPos = currentPath.string().rfind('/');
+    
+    // std::cout << currentPath.string().substr(0,lastPos) << '\n';
+    // std::cout << fs::current_path().string() << '\n';
+    fs::current_path(currentPath.string().substr(0,lastPos)); // cuts cpp string at last '/' position and changes location in files system
+
+    this->fillCurrentPaths(); // you don't need the "this->" but it looks cool
+
+}
+
+
+easyFiles::easyFiles(){
+    fillCurrentPaths();
+}

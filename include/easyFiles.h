@@ -9,9 +9,14 @@ private:
 
 public: // TODO: make public work
     // get vector of options
+    std::vector<std::string> getCurrentPaths();
     // move up a directory
+    bool moveUpDir(); // return true if the move was sucessful // false if it was a file
     // move down a directory
+    void moveDownDir();
     // constructor
+    easyFiles();
+
 
 
 };
