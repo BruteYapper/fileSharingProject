@@ -10,8 +10,10 @@ private:
 public: // TODO: make public work
     // get vector of options
     std::vector<std::string> getCurrentPaths();
-    // move up a directory
-    bool moveUpDir(); // return true if the move was sucessful // false if it was a file
+    // move up a directory 
+    // don't pass '/' infront of any string
+    // return true if the move was sucessful // false if it was a file
+    bool moveUpDir(std::string file); // TODO: make one that uses a reference
     // move down a directory
     void moveDownDir();
     // constructor
