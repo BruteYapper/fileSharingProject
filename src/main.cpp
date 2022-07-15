@@ -38,7 +38,7 @@ int main()
 
 
 int printList(WINDOW *win, vector<string> items){
-
+    char ch;
     do
     {
         /* code */
