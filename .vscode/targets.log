@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 13 19:02:32 2022
+# Make data base, printed on Thu Jul 14 21:12:35 2022
 
 # Variables
 
@@ -282,10 +284,7 @@ easyFiles.o: src/easyFiles.cpp include/easyFiles.h
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
- 
-make: *** No rule to make target 'all'.  Stop.
-
-#  Last modified 2022-07-11 21:39:55.597171569
+#  Last modified 2022-07-14 21:12:29.336103069
 #  File has been updated.
 #  Successfully updated.
 
@@ -325,14 +324,14 @@ main.o: src/main.cpp
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 7):
-	g++ -c src/main.cpp -std=c++17
+	g++ -c src/main.cpp -std=c++17 -lncurses
 
 output: main.o easyFiles.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 3):
-	g++ main.o easyFiles.o -o fileShare -l stdc++fs -std=c++17
+	g++ main.o easyFiles.o -o fileShare -std=c++17 -lncurses
 
 # files hash-table stats:
 # Load=11/1024=1%, Rehash=0, Collisions=0/28=0%
@@ -348,6 +347,6 @@ output: main.o easyFiles.o
 # strcache performance: lookups = 33 / hit rate = 36%
 # hash-table stats:
 # Load=21/8192=0%, Rehash=0, Collisions=1/33=3%
-# Finished Make data base on Wed Jul 13 19:02:32 2022
+# Finished Make data base on Thu Jul 14 21:12:35 2022
 
  

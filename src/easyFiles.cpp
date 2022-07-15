@@ -28,7 +28,6 @@ void easyFiles::fillCurrentPaths(){
 }
 
 
-
 std::vector<std::string> easyFiles::getCurrentPaths(){
 
     return currentPaths;
