@@ -11,7 +11,7 @@ private:
 
 public:
     // display vector of strings and return index of item selected
-    void displayMenu(std::vector<std::string> menu);
+    int displayMenu(std::vector<std::string> menu);
     // hides the window
     void hideWindow();
     //constructor for the window

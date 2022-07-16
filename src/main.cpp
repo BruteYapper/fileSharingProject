@@ -18,7 +18,9 @@ int main()
     curs_set(0);
 
     easyScreen main(10, 20, 3, 5);
-    easyScreen main2(20, 30, 5, 8);
+
+    main.displayMenu({"nice", "sweet"});
+
 
     getch();
     endwin();

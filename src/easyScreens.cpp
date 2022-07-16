@@ -1,6 +1,7 @@
 #include "../include/easyScreens.h"
 #include <ncurses.h>
-
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -21,6 +22,22 @@ void easyScreen::hideWindow(){
     wclear(win);
     wrefresh(win);
 }
+
+
+int easyScreen::displayMenu(std::vector<std::string> menu){
+
+    for (size_t i = 0; i < menu.size(); i++)
+    {
+        mvwprintw(win, i+1, 1, menu.at(i).c_str());
+    }
+    
+    wrefresh(win);
+
+
+    return 0; //TODO: make this return the index of the option selected
+
+}
+
 
 
 easyScreen::~easyScreen(){
