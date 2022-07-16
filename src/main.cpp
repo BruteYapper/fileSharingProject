@@ -1,12 +1,13 @@
 // #include <experimental/filesystem> // this works if your on an older version
 #include "../include/easyFiles.h"
+#include "../include/easyScreens.h"
 #include <string>
 #include <vector>
 #include <ncurses.h>
 
 using namespace std;
 
-int printList(WINDOW, vector<string>);
+
 
 
 int main()
@@ -16,17 +17,8 @@ int main()
     noecho();
     curs_set(0);
 
-    int height, width, startY, startX;
-    getmaxyx(stdscr, height, width);
-
-    WINDOW *win = newwin(10, 20, 2, 5);
-    box(win, 0, 0);
-
-    mvwprintw(win, 1, 1, "Send"); //TODO: turn window into class that deals with it's self
-    mvwprintw(win, 2, 1, "Receive");
-
-    refresh();
-    wgetch(win);
+    easyScreen main(10, 20, 3, 5);
+    easyScreen main2(20, 30, 5, 8);
 
     getch();
     endwin();
@@ -35,14 +27,3 @@ int main()
 
 
 
-
-
-int printList(WINDOW *win, vector<string> items){
-    char ch;
-    do
-    {
-        /* code */
-    } while (ch = wgetch(win));
-    
-
-}

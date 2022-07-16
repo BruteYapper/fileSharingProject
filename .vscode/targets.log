@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 14 21:12:35 2022
+# Make data base, printed on Fri Jul 15 20:29:06 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ SNAP_DATA = /var/snap/code/100
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:67669
+JOURNAL_STREAM = 8:60904
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -73,7 +73,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 _ = /snap/code/100/usr/share/code/code
 # environment
-MANAGERPID = 1873
+MANAGERPID = 1847
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -87,7 +87,7 @@ PATH = /home/brute/.local/bin:/home/brute/.local/bin:/usr/local/sbin:/usr/local/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/brute-X470-AORUS-ULTRA-GAMING:@/tmp/.ICE-unix/2141,unix/brute-X470-AORUS-ULTRA-GAMING:/tmp/.ICE-unix/2141
+SESSION_MANAGER = local/brute-X470-AORUS-ULTRA-GAMING:@/tmp/.ICE-unix/2118,unix/brute-X470-AORUS-ULTRA-GAMING:/tmp/.ICE-unix/2118
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -103,7 +103,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 4643e36e56b742e2bf81fe0e1bdad1d2
+INVOCATION_ID = dfd3d2e29a8d4bc7ab27ae5362e5a091
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/100/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -115,7 +115,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3383
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3448
 # automatic
 %F = $(notdir $%)
 # environment
@@ -127,7 +127,7 @@ PWD = /mnt/HDD1/fileSharingProject
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2066
+SSH_AGENT_PID = 2043
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -247,7 +247,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3525
+VSCODE_PID = 3665
 # variable set hash-table stats:
 # Load=118/1024=12%, Rehash=0, Collisions=17/143=12%
 
@@ -274,22 +274,42 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+easyScreens.o: src/easyScreens.cpp include/easyScreens.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 13):
+	g++ -c src/easyScreens.cpp include/easyScreens.h -std=c++17 -lncurses
+
+# Not a target:
+include/easyScreens.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 easyFiles.o: src/easyFiles.cpp include/easyFiles.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 #  recipe to execute (from 'makefile', line 10):
 	g++ -c src/easyFiles.cpp include/easyFiles.h -std=c++17
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-14 21:12:29.336103069
+#  Last modified 2022-07-15 20:28:03.193683943
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 include/easyFiles.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/easyScreens.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -310,7 +330,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 13):
+#  recipe to execute (from 'makefile', line 16):
 	rm *.o *.out include/*.h.gch fileShare
 
 # Not a target:
@@ -326,27 +346,27 @@ main.o: src/main.cpp
 #  recipe to execute (from 'makefile', line 7):
 	g++ -c src/main.cpp -std=c++17 -lncurses
 
-output: main.o easyFiles.o
+output: main.o easyFiles.o easyScreens.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 3):
-	g++ main.o easyFiles.o -o fileShare -std=c++17 -lncurses
+	g++ main.o easyFiles.o easyScreens.o -o fileShare -std=c++17 -lncurses
 
 # files hash-table stats:
-# Load=11/1024=1%, Rehash=0, Collisions=0/28=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/35=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 198 B / avg = 9 B
-# current buf: size = 8162 B / used = 198 B / count = 21 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 23 / storage = 244 B / avg = 10 B
+# current buf: size = 8162 B / used = 244 B / count = 23 / avg = 10 B
 
-# strcache performance: lookups = 33 / hit rate = 36%
+# strcache performance: lookups = 38 / hit rate = 39%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/33=3%
-# Finished Make data base on Thu Jul 14 21:12:35 2022
+# Load=23/8192=0%, Rehash=0, Collisions=1/38=3%
+# Finished Make data base on Fri Jul 15 20:29:06 2022
 
  
