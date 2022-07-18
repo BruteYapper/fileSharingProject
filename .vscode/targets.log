@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 15 20:29:06 2022
+# Make data base, printed on Sun Jul 17 19:48:19 2022
 
 # Variables
 
@@ -45,11 +45,11 @@ CURDIR := /mnt/HDD1/fileSharingProject
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/100
+SNAP_DATA = /var/snap/code/101
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:60904
+JOURNAL_STREAM = 8:67703
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -71,15 +71,15 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-_ = /snap/code/100/usr/share/code/code
+_ = /snap/code/101/usr/share/code/code
 # environment
-MANAGERPID = 1847
+MANAGERPID = 1905
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/brute
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/100/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/101/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -87,15 +87,15 @@ PATH = /home/brute/.local/bin:/home/brute/.local/bin:/usr/local/sbin:/usr/local/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/brute-X470-AORUS-ULTRA-GAMING:@/tmp/.ICE-unix/2118,unix/brute-X470-AORUS-ULTRA-GAMING:/tmp/.ICE-unix/2118
+SESSION_MANAGER = local/brute-X470-AORUS-ULTRA-GAMING:@/tmp/.ICE-unix/2179,unix/brute-X470-AORUS-ULTRA-GAMING:/tmp/.ICE-unix/2179
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/brute/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/100
+SNAP = /snap/code/101
 # environment
-SNAP_VERSION = 92d25e35
+SNAP_VERSION = b06ae3b2
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -103,9 +103,9 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = dfd3d2e29a8d4bc7ab27ae5362e5a091
+INVOCATION_ID = 2dae2c87fd9c4317880da328b4d955db
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/100/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/101/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -115,7 +115,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3448
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2872
 # automatic
 %F = $(notdir $%)
 # environment
@@ -127,7 +127,7 @@ PWD = /mnt/HDD1/fileSharingProject
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2043
+SSH_AGENT_PID = 2104
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -141,7 +141,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/brute/.config/Code/CachedData/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+VSCODE_CODE_CACHE_PATH = /home/brute/.config/Code/CachedData/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a
 # environment
 LOGNAME = brute
 # environment
@@ -171,7 +171,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/brute/snap/code/100
+SNAP_USER_DATA = /home/brute/snap/code/101
 # environment
 SHLVL = 0
 # environment
@@ -181,7 +181,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = brute
 # environment
-SNAP_REVISION = 100
+SNAP_REVISION = 101
 # makefile
 .DEFAULT_GOAL := output
 # environment
@@ -197,7 +197,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = en_CA:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c02cebf5-1.69.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c02cebf5-1.69.1-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -247,7 +247,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3665
+VSCODE_PID = 3071
 # variable set hash-table stats:
 # Load=118/1024=12%, Rehash=0, Collisions=17/143=12%
 
@@ -257,9 +257,9 @@ VSCODE_PID = 3665
 
 # Directories
 
-# . (device 2065, inode 11796481): 11 files, no impossibilities.
+# . (device 2065, inode 11796481): 12 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -291,14 +291,14 @@ easyFiles.o: src/easyFiles.cpp include/easyFiles.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  recipe to execute (from 'makefile', line 10):
 	g++ -c src/easyFiles.cpp include/easyFiles.h -std=c++17
 
 # Not a target:
 makefile:
+ 
 #  Implicit rule search has been done.
-#  Last modified 2022-07-15 20:28:03.193683943
+#  Last modified 2022-07-17 19:48:15.319983669
 #  File has been updated.
 #  Successfully updated.
 
@@ -361,12 +361,12 @@ output: main.o easyFiles.o easyScreens.o
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 244 B / avg = 10 B
-# current buf: size = 8162 B / used = 244 B / count = 23 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 254 B / avg = 10 B
+# current buf: size = 8162 B / used = 254 B / count = 24 / avg = 10 B
 
-# strcache performance: lookups = 38 / hit rate = 39%
+# strcache performance: lookups = 39 / hit rate = 38%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/38=3%
-# Finished Make data base on Fri Jul 15 20:29:06 2022
+# Load=24/8192=0%, Rehash=0, Collisions=1/39=3%
+# Finished Make data base on Sun Jul 17 19:48:19 2022
 
  

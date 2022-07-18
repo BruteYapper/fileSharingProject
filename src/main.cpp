@@ -4,9 +4,13 @@
 #include <string>
 #include <vector>
 #include <ncurses.h>
+#include <iostream>
 
 using namespace std;
 
+
+void host(int, int);
+void receive();
 
 
 
@@ -17,15 +21,41 @@ int main()
     noecho();
     curs_set(0);
 
-    easyScreen main(10, 20, 3, 5);
+    int yMax, xMax;
 
-    main.displayMenu({"nice", "sweet"});
+    getmaxyx(stdscr, yMax, xMax);
 
+    easyScreen firstWindow(10, 20, 3, 5);
 
-    getch();
+    
+    if (firstWindow.displayMenu({"Host", "Receive"}) == 0){
+        firstWindow.hideWindow();
+        host(yMax, xMax);
+    }
+    else{
+        firstWindow.hideWindow();
+        receive();
+    }
+    
+
+    // getch();
     endwin();
     return 0;
 }
 
 
 
+void host(int y, int x){
+
+    easyScreen searchFiles(y-2, x/2, 1, 1);
+    searchFiles.displayMenu({"nice", "ok", "cool", "bed time!"});
+    // while(true){
+
+    // }
+
+
+}
+
+void receive(){
+
+}
