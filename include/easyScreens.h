@@ -8,7 +8,7 @@ private:
     // vars for the window
     int height, width, startY, startX; 
     WINDOW *win;
-    WINDOW *display; //TODO: implament this window at the top of the application
+    WINDOW *display; //TODO: implament this window at the top of the application~
     bool dirOn;
     // sets a bool to true and handles displaying a string at the top
     void topDirectoryBarDraw(std::string dir);
