@@ -11,16 +11,16 @@ private:
     WINDOW *display; //TODO: implament this window at the top of the application~
     bool dirOn;
     // sets a bool to true and handles displaying a string at the top
-    void topDirectoryBarDraw(std::string dir);
 
 
 public:
+    void topDirectoryBarDraw(std::string dir);
     // display vector of strings and return index of item selected
     int displayMenu(std::vector<std::string> menu);
     // hides the window
     void hideWindow();
     //constructor for the window
-    easyScreen(int height, int width, int startY, int startX); // TODO: figrue out how to give the last param a default value
+    easyScreen(int height, int width, int startY, int startX, bool dirOn); // TODO: figrue out how to give the last param a default value
     // distructor that uses clear() to clear the window
     ~easyScreen();
 };

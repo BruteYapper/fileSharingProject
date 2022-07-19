@@ -2,24 +2,29 @@
 #include <ncurses.h>
 #include <vector>
 #include <string>
+#include <filesystem>
 
+namespace fs = std::filesystem;
 using namespace std;
 
-easyScreen::easyScreen(int height, int width, int startY, int startX)
-    : height{height}, width{width}, startY {startY}, startX {startX} {
+easyScreen::easyScreen(int height, int width, int startY, int startX, bool dirOn)
+    : height{height}, width{width}, startY {startY}, startX {startX}, dirOn{dirOn} {
 
 
     if (dirOn == true){
-        win = newwin(height-3, width, startY-3, startX);
-        // display = newwin(3, width, startY, startX);
+        win = newwin(height-3, width, startY+3, startX);
+        display = newwin(3, width, startY+1, startX);
     }
     else{
         win = newwin(height, width, startY, startX);
     }
     box(win, 0, 0);
-    // box(display, 0, 0);
     refresh();
     wrefresh(win);
+    if(dirOn){
+        box(display, 0, 0);
+        wrefresh(display);
+    }
 
 
 }
@@ -35,11 +40,11 @@ void easyScreen::hideWindow(){
 
 
 
-// void easyScreen::topDirectoryBarDraw(std::string dir){
-//     mvwprintw(display, 1, 1, dir.c_str());
-//     mvwprintw(display, 2, 1, string(width/2, '=').c_str());
+void easyScreen::topDirectoryBarDraw(std::string dir){
+    mvwprintw(display, 1, 1, dir.c_str());
 
-// }
+
+}
 
 
 int easyScreen::displayMenu(std::vector<std::string> menu){
@@ -71,12 +76,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
 
 
-
-
         case 10: // enter key
-            runScreen = false;
-            break;
-
         case 32: //space bar
             runScreen = false;
             break;
@@ -100,10 +100,10 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
                 mvwprintw(win, i+1, 1, menu.at(i).c_str());
         }
 
-        // if (dirOn){
-        //     this->topDirectoryBarDraw("test");
-        //     wrefresh(display);
-        // }
+        if (dirOn){
+            this->topDirectoryBarDraw(fs::current_path().string());
+            wrefresh(display);
+        }
 
 
         wrefresh(win);
@@ -115,7 +115,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
 
 
-    return heighlight; //TODO: make this return the index of the option selected
+    return heighlight;
 
     // "space bar(key)" is 32 and "enter(key)" is 10
 
@@ -126,5 +126,6 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 easyScreen::~easyScreen(){
 
     delwin(win);
+    delwin(display);
 
 }

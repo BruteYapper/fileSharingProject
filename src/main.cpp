@@ -21,11 +21,12 @@ int main()
     noecho();
     curs_set(0);
 
+
     int yMax, xMax;
 
     getmaxyx(stdscr, yMax, xMax);
 
-    easyScreen firstWindow(10, 20, 3, 5);
+    easyScreen firstWindow(10, 20, 3, 5, false);
 
     
     if (firstWindow.displayMenu({"Host", "Receive"}) == 0){
@@ -47,8 +48,10 @@ int main()
 
 void host(int y, int x){
 
-    easyScreen searchFiles(y-2, x/2, 1, 1);
+    easyScreen searchFiles(y-2, x/2, 1, 1, true);
+
     searchFiles.displayMenu({"nice", "ok", "cool", "bed time!"});
+
     // while(true){
 
     // }
