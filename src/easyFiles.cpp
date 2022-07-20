@@ -17,7 +17,7 @@ void easyFiles::fillCurrentPaths(){
 
 
         if (dirEntry.is_directory()) // puts strings at the top or bottom of the vector
-            currentPaths.insert(currentPaths.begin(), name.substr(lastPos, name.length()));
+            currentPaths.insert(currentPaths.begin(), name.substr(lastPos, name.length())); // if it is a directory it leaves the '/'
             
         else
             currentPaths.push_back(name.substr(lastPos+1, name.length()));
@@ -46,7 +46,7 @@ bool easyFiles::moveUpDir(std::string file){
     // else if (file.at(0) != '/')
     //     file = '/' + file;
 
-    if (file.at(0) == '/'){
+    if (file.at(0) == '/'){ // checks if it's a directory
         fs::current_path(file.substr(1, file.size()-1)); // this can't have a '/' in front of the name
         this->fillCurrentPaths();
         return true;

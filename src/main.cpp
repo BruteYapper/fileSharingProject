@@ -59,7 +59,7 @@ void host(int y, int x){
 
 
     secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
-    while (true){
+    while (true){ // main logic of finding the file
 
         temp = currentPath.getCurrentPaths();
         
@@ -70,7 +70,7 @@ void host(int y, int x){
         pathInt = secondWindow.displayMenu(temp);
 
 
-        if (pathInt == 0){
+        if (pathInt == 0){ // handles moving up and down directories
             currentPath.moveDownDir();
             secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         } else{

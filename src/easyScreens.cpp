@@ -70,8 +70,8 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
     do
     {
-        switch (choice) // TODO: add short cuts to moving up and down directories
-        {
+        switch (choice) // handles user input
+        { // TODO: add short cuts to moving up and down directories
         case KEY_UP:
         case 119:
             (heighlight != 0)? heighlight-- : heighlight;
@@ -97,7 +97,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
 
 
-        for (size_t i = 0; i < menu.size(); i++)
+        for (size_t i = 0; i < menu.size(); i++) // prings out list
         {
             if (heighlight == i){
                 wattron(win, A_REVERSE);
