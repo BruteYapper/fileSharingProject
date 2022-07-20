@@ -70,7 +70,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
     do
     {
-        switch (choice)
+        switch (choice) // TODO: add short cuts to moving up and down directories
         {
         case KEY_UP:
         case 119:

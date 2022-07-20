@@ -37,19 +37,23 @@ std::vector<std::string> easyFiles::getCurrentPaths(){
 }
 
 
-bool easyFiles::moveUpDir(std::string file){
+bool easyFiles::moveUpDir(std::string file){ 
 
-    fs::directory_entry nextDir(file);
+    // fs::directory_entry nextDir(file);
 
-    if (!nextDir.is_directory()) // not a directory
-        return false;
-    else if (file.at(0) != '/')
-        file = '/' + file;
+    // if (!nextDir.is_directory()) // not a directory
+    //     return false;
+    // else if (file.at(0) != '/')
+    //     file = '/' + file;
 
-    fs::current_path(file);
-    this->fillCurrentPaths();
+    if (file.at(0) == '/'){
+        fs::current_path(file.substr(1, file.size()-1)); // this can't have a '/' in front of the name
+        this->fillCurrentPaths();
+        return true;
+    }
 
-    return true;
+    return false;
+
 }
 
 

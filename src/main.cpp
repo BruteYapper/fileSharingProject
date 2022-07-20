@@ -15,7 +15,7 @@ void receive();
 
 
 
-int main()
+int main() // TODO: look at sending files through wifi
 {
     initscr();
     cbreak();
@@ -74,7 +74,8 @@ void host(int y, int x){
             currentPath.moveDownDir();
             secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         } else{
-            currentPath.moveUpDir(temp.at(pathInt)); // TODO: get moving between files work
+            currentPath.moveUpDir(temp.at(pathInt));
+            secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         }
 
         
