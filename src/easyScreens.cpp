@@ -41,8 +41,11 @@ void easyScreen::hideWindow(){
 
 
 void easyScreen::topDirectoryBarDraw(std::string dir){
+    wclear(display);
+    box(display, 0, 0);
     mvwprintw(display, 1, 1, dir.c_str());
-
+    refresh();
+    wrefresh(display);
 
 }
 
@@ -53,6 +56,11 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
     
     keypad(win, true);
+
+    werase(win);
+    box(win, 0, 0);
+    wrefresh(win);
+
 
     int choice;
     unsigned short int heighlight = 0;
@@ -100,10 +108,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
                 mvwprintw(win, i+1, 1, menu.at(i).c_str());
         }
 
-        if (dirOn){
-            this->topDirectoryBarDraw(fs::current_path().string());
-            wrefresh(display);
-        }
+
 
 
         wrefresh(win);

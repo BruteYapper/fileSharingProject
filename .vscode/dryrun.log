@@ -1,5 +1,8 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/HDD1/fileSharingProject'
+g++ -c src/main.cpp -std=c++17 -lncurses
+g++ -c src/easyFiles.cpp include/easyFiles.h -std=c++17
+g++ -c src/easyScreens.cpp include/easyScreens.h -std=c++17 -lncurses
 g++ main.o easyFiles.o easyScreens.o -o fileShare -std=c++17 -lncurses
 make: Leaving directory '/mnt/HDD1/fileSharingProject'
  

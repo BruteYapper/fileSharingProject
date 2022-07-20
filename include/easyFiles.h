@@ -16,6 +16,8 @@ public:
     bool moveUpDir(std::string file);
     // move down a directory
     void moveDownDir();
+    // returns the current path
+    std::string returnCurrentPath();
     // constructor
     easyFiles();
 

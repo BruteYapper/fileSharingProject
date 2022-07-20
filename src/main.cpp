@@ -14,6 +14,7 @@ void receive();
 
 
 
+
 int main()
 {
     initscr();
@@ -26,7 +27,7 @@ int main()
 
     getmaxyx(stdscr, yMax, xMax);
 
-    easyScreen firstWindow(10, 20, 3, 5, false);
+    easyScreen firstWindow(10, 20, 3, 5);
 
     
     if (firstWindow.displayMenu({"Host", "Receive"}) == 0){
@@ -41,6 +42,7 @@ int main()
 
     // getch();
     endwin();
+
     return 0;
 }
 
@@ -48,13 +50,38 @@ int main()
 
 void host(int y, int x){
 
-    easyScreen searchFiles(y-2, x/2, 1, 1, true);
+    easyScreen secondWindow(y-2, x/2, 1, 1, true);
+    easyFiles currentPath;
 
-    searchFiles.displayMenu({"nice", "ok", "cool", "bed time!"});
+    std::vector<std::string> temp = currentPath.getCurrentPaths();
+    // int pathInt = secondWindow.displayMenu(temp);
+    int pathInt;
 
-    // while(true){
 
-    // }
+    secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
+    while (true){
+
+        temp = currentPath.getCurrentPaths();
+        
+
+        
+
+
+        pathInt = secondWindow.displayMenu(temp);
+
+
+        if (pathInt == 0){
+            currentPath.moveDownDir();
+            secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
+        } else{
+            currentPath.moveUpDir(temp.at(pathInt)); // TODO: get moving between files work
+        }
+
+        
+
+    }
+
+    // secondWindow.hideWindow();
 
 
 }

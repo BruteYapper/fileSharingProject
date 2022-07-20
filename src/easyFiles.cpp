@@ -9,7 +9,7 @@
 namespace fs = std::filesystem;
 
 void easyFiles::fillCurrentPaths(){
-    
+    currentPaths.clear();
     
     for (auto const &dirEntry: fs::directory_iterator{fs::current_path()}){
         std::string name = dirEntry.path().string();
@@ -23,6 +23,8 @@ void easyFiles::fillCurrentPaths(){
             currentPaths.push_back(name.substr(lastPos+1, name.length()));
 
     }
+
+    currentPaths.insert(currentPaths.begin(), "/..");
 
 
 }
@@ -61,6 +63,11 @@ void easyFiles::moveDownDir(){
 
     this->fillCurrentPaths(); // you don't need the "this->" but it looks cool
 
+}
+
+
+std::string easyFiles::returnCurrentPath(){
+    return fs::current_path().string();
 }
 
 
