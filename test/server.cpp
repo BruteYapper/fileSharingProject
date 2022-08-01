@@ -21,12 +21,18 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
+    // forcefully attaching socket to the port 8080
+    if (setsockopt(serverFd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))){
+        perror("setsockopt");
+        exit(EXIT_FAILURE);
+    }
+
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(PORT);
 
     // Forcefully attaching socket to the port 8080
-    if (bind(serverFd, (sockaddr*) &address, sizeof(address)) < 0){
+    if (bind(serverFd, (struct sockaddr*) &address, sizeof(address)) < 0){
         perror("bind failed");
         exit(EXIT_FAILURE);
     }
@@ -34,10 +40,10 @@ int main(){
         perror("listen");
         exit(EXIT_FAILURE);
     }
-    if ((newSocket = accept(serverFd, (sockaddr*)&address, (socklen_t*)&addrlen))){
+    if ((newSocket = accept(serverFd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0){
         perror("accept");
         exit(EXIT_FAILURE);
-        printf("nice");
+
     }
 
     valread = read(newSocket, buffer, 1024);
@@ -50,4 +56,5 @@ int main(){
     // closing the listening socket
     shutdown(serverFd, SHUT_RDWR);
 
+    return 0;
 }
