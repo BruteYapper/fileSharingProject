@@ -1,3 +1,7 @@
 /fileShare
 /include/*.h.gch
 /*.o
+/test/a.out
+/test/client
+/test/server
+*/.vscode
