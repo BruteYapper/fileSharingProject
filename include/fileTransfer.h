@@ -16,13 +16,24 @@ private:
     sockaddr_in address;
     int opt = 1;
     int addrlen = sizeof(address);
-    char buffer[1024] = {0};
+    char numBuffer[1024] = {0};
+    char msgBuffer[1024] = {0};
+    // check if the client is still connected to host
+    int error, retval;
+    socklen_t len; 
+    long int fileSizeInBytes;
+
 
 public:
     void setUpHostSocket(); // sets up socket, setsockopt, address params, binds and listens
     // returns -1 if something went wrong
     int setUpClientSocket();
     // also accept a new connection
-    int getFile(); // download file
+    int getFileHost(); // download file
+
+    int sendFileClient();
+
+    void findSize();
+
     
 };
