@@ -14,6 +14,7 @@ int main(){
     int addrlen  = sizeof(address);
     char buffer[1024] = {0};
     char *hello = "Hello from server!";
+    
 
     // Creating socket file descriptor
     if ((serverFd = socket(AF_INET, SOCK_STREAM, 0)) == 0){
