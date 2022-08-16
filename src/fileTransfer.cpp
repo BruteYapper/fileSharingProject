@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include <cmath> // temp include
 
 void fileTransfer::setUpHostSocket(){
     if((serverFD = socket(AF_INET, SOCK_STREAM, 0)) == -1){
@@ -66,19 +67,48 @@ int fileTransfer::getFileHost(){
 
     std::ofstream file;
     // std::string temp {buffer, std::ios::app};
-    file.open(("test.txt"), std::ios::out);
+    char fileName[100] = {0};
+    char fileLength[500] = {0};
 
 
     if(!file){
         std::cout << "Error in creating file!!";
         return 0;
     }
-    // reads the number of chars in the file that is being sent
+    // unpacks first packet (gets name and file size)
     std::cout << "started reading" << std::endl;
-    read(newSocket, numBuffer, 1024);
-    std::cout << "done first read:\n" << numBuffer << std::endl;
+    read(newSocket, numBuffer, 1023);
 
-    fileSizeInBytes = atoi(numBuffer);
+
+    std::cout << numBuffer << std::endl;
+
+
+    // gets name of file
+    for (int j, i = 0; numBuffer[i] != ')'; i++){
+        if (numBuffer[i] == '(')
+            continue;
+        
+        fileName[i-1] = numBuffer[i];
+    }    
+    
+    
+    // gets size of file
+    bool readyForLength = false;
+    for (int j = 0, i = 0; numBuffer[i] != ']'; i++){
+        if (readyForLength){
+            fileLength[j] = numBuffer[i];
+            j++;
+
+        }
+
+        if (numBuffer[i] == '[')
+            readyForLength = true;
+    }
+    
+
+    file.open((fileName), std::ios::out); 
+    
+    fileSizeInBytes = atoi(fileLength);
 
 
 
@@ -117,29 +147,41 @@ int fileTransfer::getFileHost(){
 
 }
 
-int fileTransfer::sendFileClient(){
+int fileTransfer::sendFileClient(const char *fileName){
     
-    std::ifstream inFile {"test.txt", std::ios::in}; 
+    std::ifstream inFile {fileName, std::ios::in}; // TODO: try sending a photo
     std::string info;
 
     if(!inFile){
         std::cerr << "There was an error\n" << std::endl;
         return -1;
     }
-
-    std::string temp = std::to_string(fileSizeInBytes);
+    // temp will be formated so the name of the file will be in () and the size will be [] the rest will be filled with '1'
+    std::string temp = "";
+    temp.append("(");
+    temp.append(fileName);
+    temp.append(")");
     
-    temp.append(".");
+    temp.append("[");    
+    temp.append(std::to_string(fileSizeInBytes));
+    temp.append("]");
+    
 
 
-    for (int i = 0; i != (1023 - temp.size()); i++){
+
+    
+    int tempInt = (1023 - temp.size());
+    for (int i = 0; i < tempInt; i++){
         temp.append("1");
     }
 
     
-    std::cout << temp << std::endl;
 
-    send(sock, temp.c_str(), strlen(std::to_string(fileSizeInBytes).c_str()), 0); // sends the number of bytes the file is as a string
+
+
+
+
+    send(sock, temp.c_str(), strlen(temp.c_str()), 0); // sends the number of bytes the file is as a string
 
     fileSizeInBytes = fileSizeInBytes / 1024;
     for (int i = 0; i != (fileSizeInBytes+1); i++){ 
@@ -151,8 +193,8 @@ int fileTransfer::sendFileClient(){
                 info += ' ';
         }
         send(sock, info.c_str(), strlen(info.c_str()), 0);
-        std::cout << info << std::endl;
-        std::cout << "==========" << std::endl;
+        // std::cout << info << std::endl;
+        // std::cout << "==========" << std::endl;
 
         info.clear();
     }
@@ -165,10 +207,13 @@ int fileTransfer::sendFileClient(){
 
 }
 
-void fileTransfer::findSize(){
-    FILE *fp = fopen("test.txt", "rb");
+void fileTransfer::findSize(const char *fileName){
+    FILE *fp = fopen(fileName, "rb");
+    std::cout << "made it here\n";
     fseek(fp, 0, SEEK_END);
     fileSizeInBytes = ftell(fp);
     fclose(fp);
 
 }
+
+

@@ -31,9 +31,9 @@ public:
     // also accept a new connection
     int getFileHost(); // download file
 
-    int sendFileClient();
+    int sendFileClient(const char *fileName);
 
-    void findSize();
+    void findSize(const char *fileName);
 
     
 };
