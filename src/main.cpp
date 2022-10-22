@@ -1,6 +1,7 @@
 // #include <experimental/filesystem> // this works if your on an older version
 #include "../include/easyFiles.h"
 #include "../include/easyScreens.h"
+#include "../include/fileTransfer.h"
 #include <string>
 #include <vector>
 #include <ncurses.h>
@@ -30,7 +31,7 @@ int main() // TODO: look at sending files through wifi
     easyScreen firstWindow(10, 20, 3, 5);
 
     
-    if (firstWindow.displayMenu({"Host", "Receive"}) == 0){
+    if (firstWindow.displayMenu({"Send", "Receive"}) == 0){
         firstWindow.hideWindow();
         host(yMax, xMax);
     }
@@ -53,28 +54,35 @@ void host(int y, int x){ // handles the host window
     easyScreen secondWindow(y-2, x/2, 1, 1, true);
     easyFiles currentPath;
 
-    std::vector<std::string> temp = currentPath.getCurrentPaths();
-    // int pathInt = secondWindow.displayMenu(temp);
+    std::vector<std::string> visibleFiles = currentPath.getCurrentPaths();
+    // int pathInt = secondWindow.displayMenu(visibleFiles);
     int pathInt;
 
 
     secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
     while (true){ // main logic of finding the file
 
-        temp = currentPath.getCurrentPaths(); // returns a vector of strings of all files and folders in current file.
+        visibleFiles = currentPath.getCurrentPaths(); // returns a vector of strings of all files and folders in current file.
         
 
         
 
 
-        pathInt = secondWindow.displayMenu(temp);
+        pathInt = secondWindow.displayMenu(visibleFiles);
 
 
         if (pathInt == 0){ // handles moving up and down directories
             currentPath.moveUpDir();
             secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         } else{
-            currentPath.moveDownDir(temp.at(pathInt));
+            if (currentPath.moveDownDir(visibleFiles.at(pathInt)) != "folder"){
+
+                fileTransfer wifi;
+                wifi.setUpClientSocket(); // client sends and host receives
+                wifi.sendFileClient(currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str());
+
+            }
+            
             secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         }
 

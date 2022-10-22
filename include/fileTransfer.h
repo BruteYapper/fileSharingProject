@@ -31,7 +31,6 @@ public:
 
     int sendFileClient(const char *fileName);
 
-    void findSize(const char *fileName);
 
     
 };

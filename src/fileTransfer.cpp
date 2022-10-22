@@ -65,78 +65,6 @@ int fileTransfer::setUpClientSocket(){
 
 int fileTransfer::getFileHost(){
 
-    // std::ofstream file;
-    // // std::string temp {buffer, std::ios::app};
-    // char fileName[100] = {0};
-    // char fileLength[500] = {0};
-
-
-    // if(!file){
-    //     std::cout << "Error in creating file!!";
-    //     return 0;
-    // }
-    // // unpacks first packet (gets name and file size)
-    // std::cout << "started reading" << std::endl;
-    // read(newSocket, numBuffer, 1023);
-
-
-    // std::cout << numBuffer << std::endl;
-
-
-    // // gets name of file
-    // for (int j, i = 0; numBuffer[i] != ')'; i++){
-    //     if (numBuffer[i] == '(')
-    //         continue;
-        
-    //     fileName[i-1] = numBuffer[i];
-    // }    
-    
-    
-    // // gets size of file
-    // bool readyForLength = false;
-    // for (int j = 0, i = 0; numBuffer[i] != ']'; i++){
-    //     if (readyForLength){
-    //         fileLength[j] = numBuffer[i];
-    //         j++;
-
-    //     }
-
-    //     if (numBuffer[i] == '[')
-    //         readyForLength = true;
-    // }
-    
-
-    // file.open((fileName), std::ios::out); 
-    
-    // fileSizeInBytes = atoi(fileLength);
-
-
-
-    // std::cout << std::endl << "buffer After" << std::endl;
-    // // std::cout << buffer << std::endl;
-
-
-    
-
-    
-
-    // fileSizeInBytes = fileSizeInBytes / 1024;
-    // // std::cout << buffer << std::endl;
-    // memset(numBuffer, 0, sizeof(numBuffer));
-    // // std::cout << buffer << std::endl;
-    // for (int i = 0; i != (fileSizeInBytes+1); i++){ // this works because arrays are just pointers to the beginning of the array
-
-    //     valread = read(newSocket, msgBuffer, 1024);
-
-    //     // if (i == (fileSizeInBytes)){
-    //     //     std::cout << "msgBuffer" << "\n"; 
-    //     //     // file << "=================================================" << std::endl;
-    //     // }
-
-    //     file << msgBuffer;
-        
-    // }
-
    
     //Read Picture Size
     printf("Reading Picture Size\n");
@@ -150,7 +78,6 @@ int fileTransfer::getFileHost(){
     //Convert it Back into Picture
     printf("Converting Byte Array to Picture\n");
     read(newSocket, &nameSize, sizeof(int));
-    printf("%i\n", nameSize);
     char p_array[1000];
     char fileName[nameSize];
     read(newSocket, fileName, nameSize*8);
@@ -188,58 +115,6 @@ int fileTransfer::getFileHost(){
 
 int fileTransfer::sendFileClient(const char *fileName){
     
-    // std::ifstream inFile {fileName, std::ios::in}; 
-    // std::string info;
-
-    // if(!inFile){
-    //     std::cerr << "There was an error\n" << std::endl;
-    //     return -1;
-    // }
-    // // temp will be formated so the name of the file will be in () and the size will be [] the rest will be filled with '1'
-    // std::string temp = "";
-    // temp.append("(");
-    // temp.append(fileName);
-    // temp.append(")");
-    
-    // temp.append("[");    
-    // temp.append(std::to_string(fileSizeInBytes));
-    // temp.append("]");
-    
-
-
-
-    
-    // int tempInt = (1023 - temp.size());
-    // for (int i = 0; i < tempInt; i++){
-    //     temp.append("1");
-    // }
-
-    
-
-
-
-
-
-    // send(sock, temp.c_str(), strlen(temp.c_str()), 0); // sends the number of bytes the file is as a string
-
-    // fileSizeInBytes = fileSizeInBytes / 1024;
-    // for (int i = 0; i != (fileSizeInBytes+1); i++){ 
-    //     for (size_t i = 0; i != 1023; i++)
-    //     {
-    //         if (inFile.peek() != EOF)
-    //             info += inFile.get();
-    //         else
-    //             info += ' ';
-    //     }
-    //     send(sock, info.c_str(), strlen(info.c_str()), 0);
-    //     // std::cout << info << std::endl;
-    //     // std::cout << "==========" << std::endl;
-
-    //     info.clear();
-    // }
-
-
-
     printf("Getting Picture Size\n");
     FILE *picture;
     picture = fopen(fileName, "r");
@@ -289,14 +164,3 @@ int fileTransfer::sendFileClient(const char *fileName){
     return 0;
 
 }
-
-// void fileTransfer::findSize(const char *fileName){
-//     // FILE *fp = fopen(fileName, "rb");
-//     // std::cout << "made it here\n";
-//     // fseek(fp, 0, SEEK_END);
-//     // fileSizeInBytes = ftell(fp);
-//     // fclose(fp);
-
-// }
-
-

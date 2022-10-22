@@ -13,7 +13,7 @@ public:
     // move up a directory 
     // don't pass '/' infront of any string
     // return true if the move was sucessful // false if it was a file
-    bool moveDownDir(std::string file);
+    std::string moveDownDir(std::string file);
     // move down a directory
     void moveUpDir();
     // returns the current path
