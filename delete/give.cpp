@@ -7,6 +7,6 @@ int main(){
     fileTransfer client;
 
     client.setUpClientSocket();
-    client.findSize("test2.txt");
-    client.sendFileClient("test2.txt");
+    // client.findSize("lemon.png");
+    client.sendFileClient("lemon.png");
 }
