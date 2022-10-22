@@ -141,16 +141,25 @@ int fileTransfer::getFileHost(){
     //Read Picture Size
     printf("Reading Picture Size\n");
     int size;
+    int nameSize;
     read(newSocket, &size, sizeof(int));
     printf("%i is the size of the file", size);
     //Read Picture Byte Array
     printf("Reading Picture Byte Array\n");
-    char p_array[1000];
 
     //Convert it Back into Picture
     printf("Converting Byte Array to Picture\n");
+    read(newSocket, &nameSize, sizeof(int));
+    printf("%i\n", nameSize);
+    char p_array[1000];
+    char fileName[nameSize];
+    read(newSocket, fileName, nameSize*8);
+    
     FILE *image;
-    image = fopen("c1.png", "w");
+    image = fopen(fileName, "w");
+    // bzero(p_array, sizeof(p_array));
+
+
 
     do{
         if(size > 1000){ // this is the main section that sends in packets of 1000
@@ -164,7 +173,6 @@ int fileTransfer::getFileHost(){
             read(newSocket, newReadBuffer, sizeof(newReadBuffer));
             fwrite(newReadBuffer, 1, sizeof(newReadBuffer), image);
             size -= size;
-            printf("Size: %i\n", size);
         }
     } while (size > 0);
 
@@ -234,7 +242,7 @@ int fileTransfer::sendFileClient(const char *fileName){
 
     printf("Getting Picture Size\n");
     FILE *picture;
-    picture = fopen("lemon.png", "r");
+    picture = fopen(fileName, "r");
     int size;
     fseek(picture, 0, SEEK_END);
     size = ftell(picture);
@@ -245,6 +253,12 @@ int fileTransfer::sendFileClient(const char *fileName){
     //Send Picture Size
     printf("Sending Picture Size\n");
     send(sock, &size, sizeof(size), 0);
+
+    int sizeOfFileName = strlen(fileName);
+
+    send(sock, &sizeOfFileName, sizeof(int), 0);
+
+    send(sock, fileName, sizeOfFileName*8, 0);
 
     //Send Picture as Byte Array
     printf("Sending Picture as Byte Array\n");

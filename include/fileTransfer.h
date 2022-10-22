@@ -16,9 +16,6 @@ private:
     sockaddr_in address;
     int opt = 1;
     int addrlen = sizeof(address);
-    // char numBuffer[1024] = {0};
-    // char msgBuffer[1024] = {0};
-    // char msgBuff [1000];
     // check if the client is still connected to host
     int error, retval;
     socklen_t len; 
