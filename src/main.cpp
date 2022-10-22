@@ -48,7 +48,7 @@ int main() // TODO: look at sending files through wifi
 
 
 
-void host(int y, int x){
+void host(int y, int x){ // handles the host window
 
     easyScreen secondWindow(y-2, x/2, 1, 1, true);
     easyFiles currentPath;
@@ -71,10 +71,10 @@ void host(int y, int x){
 
 
         if (pathInt == 0){ // handles moving up and down directories
-            currentPath.moveDownDir();
+            currentPath.moveUpDir();
             secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         } else{
-            currentPath.moveUpDir(temp.at(pathInt));
+            currentPath.moveDownDir(temp.at(pathInt));
             secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
         }
 

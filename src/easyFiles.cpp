@@ -37,7 +37,7 @@ std::vector<std::string> easyFiles::getCurrentPaths(){
 }
 
 
-bool easyFiles::moveUpDir(std::string file){ 
+bool easyFiles::moveDownDir(std::string file){ 
 
     // fs::directory_entry nextDir(file);
 
@@ -57,7 +57,7 @@ bool easyFiles::moveUpDir(std::string file){
 }
 
 
-void easyFiles::moveDownDir(){
+void easyFiles::moveUpDir(){
     fs::path currentPath (fs::current_path());
     int lastPos = currentPath.string().rfind('/');
     
