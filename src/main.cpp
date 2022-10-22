@@ -61,7 +61,7 @@ void host(int y, int x){ // handles the host window
     secondWindow.topDirectoryBarDraw(currentPath.returnCurrentPath());
     while (true){ // main logic of finding the file
 
-        temp = currentPath.getCurrentPaths();
+        temp = currentPath.getCurrentPaths(); // returns a vector of strings of all files and folders in current file.
         
 
         
@@ -87,6 +87,6 @@ void host(int y, int x){ // handles the host window
 
 }
 
-void receive(){
+void receive(){ //TODO: give user ability to recieve a file
 
 }
