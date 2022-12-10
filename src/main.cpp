@@ -79,6 +79,9 @@ void host(int y, int x){ // handles the host window
 
                 fileTransfer wifi;
                 wifi.setUpClientSocket(); // client sends and host receives
+                // printf("\n%s\n",currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str());
+                // ?(delete later) secondWindow.topDirectoryBarDraw(currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str()); // this returns a whole patj. I need to figure out how to split it and only send the file's name
+                // ?(delete later)break;
                 wifi.sendFileClient(currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str());
 
             }

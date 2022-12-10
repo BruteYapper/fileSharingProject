@@ -8,5 +8,5 @@ int main(){
 
     client.setUpClientSocket();
     // client.findSize("lemon.png");
-    client.sendFileClient("lemon.png");
+    client.sendFileClient("test2.txt");
 }

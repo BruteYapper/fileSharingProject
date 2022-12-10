@@ -47,7 +47,8 @@ std::string easyFiles::moveDownDir(std::string file){
     }
     else{
         std::string currentPath = fs::current_path();
-        return  currentPath + "/" + file;
+        // return  currentPath + "/" + file;
+        return file;
     }
 
 
