@@ -99,5 +99,7 @@ void host(int y, int x){ // handles the host window
 }
 
 void receive(){ //TODO: give user ability to recieve a file
-
+    fileTransfer wifi;
+    wifi.setUpHostSocket();
+    wifi.getFileHost();
 }
