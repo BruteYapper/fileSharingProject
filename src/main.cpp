@@ -16,7 +16,7 @@ void receive();
 
 
 
-int main() // TODO: look at sending files through wifi
+int main() 
 {
     initscr();
     cbreak();
@@ -50,6 +50,15 @@ int main() // TODO: look at sending files through wifi
 
 
 void host(int y, int x){ // handles the host window
+
+    char IPaddress [20]; 
+
+    {
+        easyScreen getIPAddress(y-2, x/2, 1, 1, false);
+        echo();
+        getIPAddress.getIP(IPaddress); 
+        noecho();
+    }
 
     easyScreen secondWindow(y-2, x/2, 1, 1, true);
     easyFiles currentPath;
@@ -98,7 +107,7 @@ void host(int y, int x){ // handles the host window
 
 }
 
-void receive(){ //TODO: give user ability to recieve a file
+void receive(){ 
     fileTransfer wifi;
     wifi.setUpHostSocket();
     wifi.getFileHost();

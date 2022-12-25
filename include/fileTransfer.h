@@ -23,13 +23,14 @@ private:
 
 
 public:
-    void setUpHostSocket(); // sets up socket, setsockopt, address params, binds and listens
+    void setUpHostSocket(); // hosts the file
+    // sets up socket, setsockopt, address params, binds and listens
     // returns -1 if something went wrong
-    int setUpClientSocket();
+    int setUpClientSocket(); // connects to the host using ipv4
     // also accept a new connection
     int getFileHost(); // download file
 
-    int sendFileClient(const char *fileName);
+    int sendFileClient(const char *fileName);  // send file to client
 
 
     

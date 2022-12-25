@@ -19,6 +19,7 @@ public:
     int displayMenu(std::vector<std::string> menu);
     // hides the window
     void hideWindow();
+    void getIP(char* IP);
     //constructor for the window
     easyScreen(int height, int width, int startY, int startX, bool dirOn = false); 
     // distructor that uses clear() to clear the window

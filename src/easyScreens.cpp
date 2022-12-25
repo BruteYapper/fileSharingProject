@@ -50,6 +50,19 @@ void easyScreen::topDirectoryBarDraw(std::string dir){
 }
 
 
+void easyScreen::getIP(char* IP){
+    wmove(win, 1, 1);
+
+ //TODO: make this functon get a series of inputs from user and put them in the passed in array
+
+    for (size_t i = 0; IP[i] != '\n'; i++){ //* let it terminate when teh user is done ()
+        IP[i] = wgetch(win);
+    }
+
+    
+}
+
+
 int easyScreen::displayMenu(std::vector<std::string> menu){
 
     
