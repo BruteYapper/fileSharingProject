@@ -52,14 +52,12 @@ int main()
 void host(int y, int x){ // handles the host window
 
     char IPaddress [20]; 
-
     {
         easyScreen getIPAddress(y-2, x/2, 1, 1, false);
         echo();
         getIPAddress.getIP(IPaddress); 
         noecho();
     }
-
     easyScreen secondWindow(y-2, x/2, 1, 1, true);
     easyFiles currentPath;
 
@@ -87,10 +85,8 @@ void host(int y, int x){ // handles the host window
             if (currentPath.moveDownDir(visibleFiles.at(pathInt)) != "folder"){
 
                 fileTransfer wifi;
-                wifi.setUpClientSocket(); // client sends and host receives
-                // printf("\n%s\n",currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str());
-                // ?(delete later) secondWindow.topDirectoryBarDraw(currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str()); // this returns a whole patj. I need to figure out how to split it and only send the file's name
-                // ?(delete later)break;
+                wifi.setUpClientSocket(IPaddress); // client sends and host receives
+                                
                 wifi.sendFileClient(currentPath.moveDownDir(visibleFiles.at(pathInt)).c_str());
 
             }
@@ -111,4 +107,5 @@ void receive(){
     fileTransfer wifi;
     wifi.setUpHostSocket();
     wifi.getFileHost();
+    printf("Done");
 }

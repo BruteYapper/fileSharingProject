@@ -63,6 +63,33 @@ int fileTransfer::setUpClientSocket(){
 
 
 
+
+int fileTransfer::setUpClientSocket(char* IP){
+    if((sock = socket(AF_INET, SOCK_STREAM, 0)) == -1){
+        printf("\nSocket creation error\n");
+        return -1;
+    }
+
+    address.sin_family = AF_INET;
+    address.sin_port = htons(PORT);
+
+    // convert IPv4 and IPv6 addresses from text to binary form
+    if (inet_pton(AF_INET, IP, &address.sin_addr) == -1){
+        printf("\nInvalid address/ Address not supported\n");
+        return -1;
+    }
+    if ((clientFD = connect(sock, (sockaddr*)&address, sizeof(address))) == -1){
+        printf("\nConnection failed \n");
+        return -1;
+    }
+
+
+    return 1;
+}
+
+
+
+
 int fileTransfer::getFileHost(){
 
    

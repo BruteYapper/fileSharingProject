@@ -28,6 +28,8 @@ public:
     // returns -1 if something went wrong
     int setUpClientSocket(); // connects to the host using ipv4
     // also accept a new connection
+    int setUpClientSocket(char* IP);
+
     int getFileHost(); // download file
 
     int sendFileClient(const char *fileName);  // send file to client
