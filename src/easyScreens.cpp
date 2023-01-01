@@ -52,17 +52,24 @@ void easyScreen::topDirectoryBarDraw(std::string dir){
 
 void easyScreen::getIP(char* IP){
     wmove(win, 1, 1);
-
+    std::string tempString {""};
     int temp {0};
     for (size_t i = 0; i < 20; i++){ //* let it terminate when the user is done ()
         temp = wgetch(win);
         
-        if (temp == 263){
+        
+        // mvwprintw(win, 1, 1, to_string(temp).c_str());
+        
+        if (temp == 127){ 
             // TODO: implament delete functionality
-            //! make this function print out the user input
-        }
 
-        IP[i] = temp;
+            i-=2;
+            
+        } else
+            IP[i] = char(temp);
+
+        for (size_t j = 0; j < i; j++)
+            mvwprintw(win, 1, j+1, &IP[j]); // ! convert this to cpp string
 
         if (IP[i] == '\n')
         {
