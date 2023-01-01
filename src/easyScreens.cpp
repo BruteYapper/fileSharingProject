@@ -54,14 +54,14 @@ void easyScreen::getIP(char* IP){
     wmove(win, 1, 1);
     std::string tempString {""};
     int temp {0};
-    for (size_t i = 0; i < 20; i++){ //* let it terminate when the user is done ()
+    for (size_t i = 0; i < 20; i++){ //* let it terminate when the user is done 
         temp = wgetch(win);
         
         
         // mvwprintw(win, 1, 1, to_string(temp).c_str());
         
         if (temp == 127){ 
-            // TODO: implament delete functionality
+            // TODO: implement delete functionality
 
             i-=2;
             
@@ -95,7 +95,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
 
     int choice;
-    unsigned short int heighlight = 0;
+    unsigned short int highlight = 0;
     
 
     bool runScreen = true;
@@ -106,12 +106,12 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
         { // TODO: add short cuts to moving up and down directories
         case KEY_UP:
         case 119:
-            (heighlight != 0)? heighlight-- : heighlight;
+            (highlight != 0)? highlight-- : highlight;
             break;
         
         case KEY_DOWN:
         case 115:
-            (heighlight != (menu.size()-1))? heighlight++ : heighlight;
+            (highlight != (menu.size()-1))? highlight++ : highlight;
             break;
 
 
@@ -131,7 +131,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
         for (size_t i = 0; i < menu.size(); i++) // prings out list
         {
-            if (heighlight == i){
+            if (highlight == i){
                 wattron(win, A_REVERSE);
                 mvwprintw(win, i+1, 1, menu.at(i).c_str());
                 wattroff(win, A_REVERSE);
@@ -152,7 +152,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
 
 
 
-    return heighlight;
+    return highlight;
 
     // "space bar(key)" is 32 and "enter(key)" is 10
 

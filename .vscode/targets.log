@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug  6 13:54:30 2022
+# Make data base, printed on Thu Sep  1 18:42:34 2022
 
 # Variables
 
@@ -45,11 +43,11 @@ CURDIR := /mnt/HDD1/fileSharingProject
 # makefile
 SHELL = /bin/sh
 # environment
-SNAP_DATA = /var/snap/code/103
+SNAP_DATA = /var/snap/code/105
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:73765
+JOURNAL_STREAM = 8:62071
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -71,15 +69,15 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-_ = /snap/code/103/usr/share/code/code
+_ = /snap/code/105/usr/share/code/code
 # environment
-MANAGERPID = 2753
+MANAGERPID = 1850
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 VSCODE_CWD = /home/brute
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/103/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/105/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -87,15 +85,15 @@ PATH = /home/brute/.local/bin:/home/brute/.local/bin:/usr/local/sbin:/usr/local/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/brute-X470-AORUS-ULTRA-GAMING:@/tmp/.ICE-unix/3026,unix/brute-X470-AORUS-ULTRA-GAMING:/tmp/.ICE-unix/3026
+SESSION_MANAGER = local/brute-X470-AORUS-ULTRA-GAMING:@/tmp/.ICE-unix/2123,unix/brute-X470-AORUS-ULTRA-GAMING:/tmp/.ICE-unix/2123
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/brute/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/103
+SNAP = /snap/code/105
 # environment
-SNAP_VERSION = da76f933
+SNAP_VERSION = e4503b30
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
@@ -103,9 +101,9 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 981c8e9276234535b80e71a7a4be3fee
+INVOCATION_ID = dde16de8fedf4040a222ec658027972e
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/103/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -115,7 +113,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 3511
+GIO_LAUNCHED_DESKTOP_FILE_PID = 193855
 # automatic
 %F = $(notdir $%)
 # environment
@@ -127,7 +125,7 @@ PWD = /mnt/HDD1/fileSharingProject
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2951
+SSH_AGENT_PID = 2047
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -141,7 +139,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/brute/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+VSCODE_CODE_CACHE_PATH = /home/brute/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
 # environment
 LOGNAME = brute
 # environment
@@ -171,7 +169,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/brute/snap/code/103
+SNAP_USER_DATA = /home/brute/snap/code/105
 # environment
 SHLVL = 0
 # environment
@@ -181,7 +179,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = brute
 # environment
-SNAP_REVISION = 103
+SNAP_REVISION = 105
 # makefile
 .DEFAULT_GOAL := output
 # environment
@@ -197,7 +195,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = en_CA:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-c02cebf5-1.70.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-c02cebf5-1.70.2-main.sock
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -247,7 +245,7 @@ GJS_DEBUG_OUTPUT = stderr
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3584
+VSCODE_PID = 193908
 # variable set hash-table stats:
 # Load=118/1024=12%, Rehash=0, Collisions=17/143=12%
 
@@ -257,9 +255,9 @@ VSCODE_PID = 3584
 
 # Directories
 
-# . (device 2065, inode 11796481): 14 files, no impossibilities.
+# . (device 2065, inode 11796481): 11 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -287,6 +285,9 @@ include/easyScreens.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 easyFiles.o: src/easyFiles.cpp include/easyFiles.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -296,9 +297,8 @@ easyFiles.o: src/easyFiles.cpp include/easyFiles.h
 
 # Not a target:
 makefile:
- 
 #  Implicit rule search has been done.
-#  Last modified 2022-07-18 20:32:37.625813609
+#  Last modified 2022-08-06 15:34:34.959520693
 #  File has been updated.
 #  Successfully updated.
 
@@ -361,12 +361,12 @@ output: main.o easyFiles.o easyScreens.o
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 266 B / avg = 10 B
-# current buf: size = 8162 B / used = 266 B / count = 26 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 264 B / avg = 10 B
+# current buf: size = 8162 B / used = 264 B / count = 26 / avg = 10 B
 
-# strcache performance: lookups = 41 / hit rate = 36%
+# strcache performance: lookups = 38 / hit rate = 31%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/41=2%
-# Finished Make data base on Sat Aug  6 13:54:30 2022
+# Load=26/8192=0%, Rehash=0, Collisions=1/38=3%
+# Finished Make data base on Thu Sep  1 18:42:34 2022
 
  
