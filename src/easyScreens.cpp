@@ -54,26 +54,39 @@ void easyScreen::getIP(char* IP){
     wmove(win, 1, 1);
     std::string tempString {""};
     int temp {0};
-    for (size_t i = 0; i < 20; i++){ //* let it terminate when the user is done 
+    for (size_t i = 0; i < 20; ){ //* let it terminate when the user is done 
         temp = wgetch(win);
         
         
         // mvwprintw(win, 1, 1, to_string(temp).c_str());
         
-        if (temp == 127){ 
-            // TODO: implement delete functionality
+        if (temp == 127){
+            // tempString.at(i) = '\0';
+            if (i > 0){
+                i--;    
+                tempString.pop_back();
+            }   
+        } else{
+            tempString += char(temp);
+            i++;
+            mvwprintw(win, 1, 1, tempString.c_str());
 
-            i-=2;
-            
-        } else
-            IP[i] = char(temp);
+        }
 
-        for (size_t j = 0; j < i; j++)
-            mvwprintw(win, 1, j+1, &IP[j]); // ! convert this to cpp string
-
-        if (IP[i] == '\n')
+        mvwprintw(win, 1, i+1, " "); // erases the last character that was deleted on the screen
+    
+        
+        if (tempString[tempString.length()-1] == '\n')
         {
-            IP[i] = '\0';
+            tempString[tempString.length()-1] = '\0';
+            
+            for (size_t j = 0; j < tempString.length(); j++)
+            {
+                IP[j] = tempString[j];
+            }
+            
+            mvwprintw(win, 2, 1, IP);
+
             break;
         }
     }
@@ -103,7 +116,7 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
     do
     {
         switch (choice) // handles user input
-        { // TODO: add short cuts to moving up and down directories
+        {
         case KEY_UP:
         case 119:
             (highlight != 0)? highlight-- : highlight;
@@ -115,12 +128,16 @@ int easyScreen::displayMenu(std::vector<std::string> menu){
             break;
 
 
-
+        case KEY_RIGHT:
         case 10: // enter key
         case 32: //space bar
             runScreen = false;
             break;
 
+        case KEY_LEFT:
+            highlight = 0;
+            runScreen = false;
+            break;
 
         default:
             break;
