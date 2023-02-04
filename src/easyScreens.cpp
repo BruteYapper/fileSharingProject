@@ -91,7 +91,9 @@ void easyScreen::getIP(char* IP){
         }
     }
 
-    
+    if (IP[0] == '\0'){
+        IP = "127.0.0.1";
+    }
 }
 
 
